@@ -50,7 +50,7 @@ const Thumbnails = ({ gallery, galleryMedium, galleryLarge, galleryName }) => {
             {
               row.map((img, colI) => (
                 <img
-                  src={ "img" }
+                  src={ img }
                   alt={ img }
                   style={{ width: '100%' }}
                   onClick={() => setGalleryModal({ ...galleryModal, imgIndex: (colI * rowLength) + rowI, gallery: galleryLarge, galleryMedium: galleryMedium, show: true })}
