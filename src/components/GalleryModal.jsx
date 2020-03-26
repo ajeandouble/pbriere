@@ -57,11 +57,15 @@ const GalleryModal = (galleryIndex) => {
 			}
 		}
 	};
-	const { gallery, galleryMedium, imgIndex } = galleryModal;
+	const { galleryMedium, imgIndex } = galleryModal;
+	const gallery = window.innerWidth <= 1200 ? galleryModal.galleryMedium : galleryModal.gallery; 
+	if (window.innerWidth < 1200) {
+		console.group("medium images");
+	}
 	let i = (gallery.length + imgIndex ) % gallery.length;
 	console.log(i)
 	console.log(imgIndex);
-	console.log(galleryModal.galleryMedium);
+	console.log(gallery);
   return (
     <div>
 			<div className="img-modal__left">
