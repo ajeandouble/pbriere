@@ -1,0 +1,309 @@
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-family: 'Lato', sans-serif;
+	font-size: 20px;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-weight: normal;
+}
+
+h1 {
+	font-size: 3rem;
+}
+
+h2 {
+	font-size: 2.5rem;
+}
+
+h3 {
+	font-size: 2rem;
+}
+
+h4 {
+	font-size: 1.8rem;
+}
+
+h5 {
+	font-size: 1rem;
+	color: white;
+	background-color: bisque;
+}
+
+h6 {
+	font-size: 1.4rem
+}
+
+.header {
+	padding-top: 0.15rem;
+}
+
+.content {
+}
+
+nav li {
+	display: inline;
+	margin-left: 1.5rem;
+}
+
+.links--main a:link, .links--main a:visited, .links--main a:hover, .links--main a:active {
+	color:rgb(29, 18, 37);
+}
+
+.links--main {
+	margin-top: 2.0vh;
+	font-weight: 700;
+	word-wrap: break-word;
+}
+
+#links--main__black a:link, #links--main__black a:visited, #links--main a:hover, #links--main a:active {
+	background-color: white;
+	
+}
+
+.links--img {
+	color: black;
+}
+
+.links--img a:link, .links--img a:visited, .links--img a:hover, .links--img a:active {
+	background-color: rgb(14, 46, 10);
+	padding: 0.1rem 0.25rem 0.1rem 0.25rem;
+	color: white;
+}
+
+.links--img a:hover {
+	background-color: white;
+	color: black;
+	font-weight: 700;
+}
+
+.links--img--padding {
+	font-weight: 700;
+	margin-left: -0.4rem;
+}
+
+
+@media only screen and (min-width: 1000px) {
+	html {
+		font-size: 20px;
+	}
+
+	.links--main {
+		letter-spacing: 10px;
+	}
+
+	.links--img {
+		margin-bottom: 1.5rem;
+	}
+	.links--img--padding {
+		font-weight: 700;
+		margin-left: 3.1rem;
+	}
+
+	.content {
+		padding: 0rem 0rem 0rem 0.75rem;
+	}	
+}
+
+/* Bjr */
+
+.bjr {
+	position: fixed;
+	left: 0;
+	top: 0;
+	padding: 4.5rem 0 0 1.5rem;
+	background-color: black;
+	min-width: 100%;
+	min-height: 100%;
+	z-index: -1;
+}
+
+.bjr img {
+	max-width: 100%;
+}
+
+/* Img Galery */
+
+.gallery {
+	max-width: 1200px;
+	margin: 0.5rem 0.15rem 1rem 0.15rem;
+}
+
+.gallery-thumb--row {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 0 3px;
+}
+
+.gallery-thumb--column {
+	flex: 20%;
+	padding: 0 3px;
+}
+
+.gallery-thumb--column img {
+	object-fit: cover;
+}
+
+#pt2 {
+}
+
+#pt3 {
+	object-fit: cover;
+	height: 100%;
+}
+
+/* Create four equal columns that sits next to each other */
+#pt1-process {
+	-ms-flex: 50%;
+	flex: 50%;
+	padding: 0 2px;
+}
+
+@media screen and (max-width: 800px) {
+	#pt1-process {
+		-ms-flex: 100%;
+		flex: 100%;
+		padding: 0 2px;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.gallery-thumb--column {
+		-ms-flex: 100%;
+		flex: 100%;
+		max-width: 100%;
+	}
+
+	.links--main {
+		margin-left: 0px;
+	}
+
+	.nav li {
+		margin-left: 0px;
+	}
+}
+
+.gallery-txt {
+	font-family: 'Monospace', 'open-sans';
+	margin: -0.5rem 0.25rem 1.25rem 0.25rem;
+	padding: 1rem 0.25rem 0.1rem 0.75rem;	
+	font-size: 0.75rem;
+	text-align: justify;
+}
+
+.gallery-txt b {
+	font-weight: 700;
+	font-style: italic;
+	letter-spacing: 5px;
+}
+  /* Modal */
+
+#img-modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: black;
+	opacity: 0.95;
+	z-index: 1000;
+}
+
+.img-modal__left, .img-modal__right {
+	position: fixed;
+	bottom: 0;
+	width: 5%;
+	height: 80%;
+	z-index: 1001;
+	float: left;
+	min-width: 100px;
+}
+
+.img-modal__right {
+	
+}
+.img-modal--img {
+	width: 100vw;
+	height: 100vh;
+	display:flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.img-modal--img img
+{
+	align-self: center;
+	flex: 0 0 auto;
+	max-width: 100vw;
+	max-height: 100vh;
+	object-fit: contain;
+	z-index: 50000;
+}
+
+.img-modal__right {
+	right: 0;
+}
+
+.img-modal--left-arrow, .img-modal--right-arrow {
+	position: fixed;
+	font-size: 4vw;
+	color: white;
+	font-weight: 200;
+	z-index: 5000;
+	color: black;
+	text-shadow:
+	-1px -1px 0 grey,
+	1px -1px 0 white,
+	-1px 1px 0 white,
+	1px 1px 0 white;
+}
+
+.img-modal--cross {
+	position: fixed;
+	z-index: 3000;
+	top: 2vh;
+	right: 4vw;	
+	font-size: 1.25rem;
+	font-weight: 400;
+	color: black;
+	text-shadow:
+	-1px -1px 0 white,
+	1px -1px 0 white,
+	-1px 1px 0 white,
+	1px 1px 0 white;
+}
+
+.img-modal__left:hover, .img-modal__right:hover, .img-modal--cross:hover {
+	cursor: pointer;	
+}
+
+.img-modal--left-arrow {
+	top: 45vh;
+	left: 0.5%;
+}
+
+.img-modal--right-arrow {
+	top: 45vh;
+	text-align: right;
+	right: 0.5%;
+}
+
+@media screen and (max-width: 700px) {
+	.img-modal__left, .img-modal__right {
+		display: none;
+		width: 0;
+	}
+
+}
+
+/* Info */
+#info--txt {
+	text-align: center;
+	margin-top: 10vh;
+	background-color: lightgrey;
+	color: white;
+	max-width: 100vw;
+	line-height: 2rem;
+}
