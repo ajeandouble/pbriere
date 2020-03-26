@@ -48,6 +48,11 @@ nav li {
 	margin-left: 1.5rem;
 }
 
+@media only screen and (max-width: 370px) {
+	nav li {
+		margin-left: 1rem;
+	}
+}
 .links--main a:link, .links--main a:visited, .links--main a:hover, .links--main a:active {
 	color:rgb(29, 18, 37);
 }
