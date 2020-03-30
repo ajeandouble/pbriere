@@ -67,7 +67,7 @@ const ImgGallery = ({ galleryIndex }) => {
   if (galleryIndex === '3')
     galleryIndex = 'photo';
   else if (galleryIndex === '4')
-    galleryIndex = 'rnd'
+    galleryIndex = 'rnd';
   else
     galleryIndex = 'pt' + (parseInt(galleryIndex) + 1).toString();
 

@@ -34,7 +34,7 @@ const Links = () => {
           <ul className="links--img">
             <span className="links--img--padding" style={{ visibility: 'hidden' }}>{ window.innerWidth < 640 ? "t" : null }</span>
             { imgLinks.map((element) => <li className="links--img--li" key={element[1]}>
-              <Link to={ element[1] }
+              <Link to={ `/img/${ element[1] }` }
                 onClick={() => element[0] === 'random/' ?
                   setActiveLinks({ ...activeLinks, random: !activeLinks.random }) : null }>
                   { element[0] }</Link></li>) }
