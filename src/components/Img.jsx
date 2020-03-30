@@ -12,8 +12,6 @@ const TwoDimensional = (arr, size) => {
   return res;
 };
 
-const imgLinks = [['papier thermique #0', '0'], ['pa. th. 1', '1'], ['pa. th. 2', '2'], ['photos', '3'], ['rnd', '4']];
-
 const Thumbnails = ({ gallery, galleryMedium, galleryLarge, galleryName }) => {
   const { galleryModal, setGalleryModal } = React.useContext(GalleryModalContext);
 
@@ -107,24 +105,9 @@ const Img = (props) => {
 	const [galleryModal, setGalleryModal] = useState({ gallery: '', show: false, imgIndex: 0 });
 	const contextValue = { galleryModal, setGalleryModal };
 	const galleryIndex = props.match.params.id;
-  const links = imgLinks;
-
-  if (window.innerWidth < 640) {
-    links[0][0] = '#0';
-    links[1][0] = '#1';
-    links[2][0] = '#2';
-    links[3][0] = 'photos';
-  }
 
   return (
     <div>
-      <nav className="header">
-        <ul className="links--img">
-          <span className="links--img--padding" style={{ visibility: 'hidden' }}>Test</span>
-          {/* padding */}
-          {links.map((element) => <li className="links--img--li" key={element[1]}><Link to={`/img/${element[1]}`}>{element[0]}</Link></li>)}
-        </ul>
-      </nav>
       <div className="content">
         {
           galleryIndex !== '4' ? 
