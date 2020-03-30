@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { GalleryModal, GalleryModalContext } from './GalleryModal';
-import { imgData } from '../tools/loadImgs';
+import { imgData, rnd } from '../tools/loadImgs';
 import parseHtml from 'html-react-parser';
 
 const TwoDimensional = (arr, size) => {
@@ -12,7 +12,7 @@ const TwoDimensional = (arr, size) => {
   return res;
 };
 
-const imgLinks = [['papier thermique #0', '0'], ['pa. th. 1', '1'], ['pa. th. 2', '2'], ['photos', '3']];
+const imgLinks = [['papier thermique #0', '0'], ['pa. th. 1', '1'], ['pa. th. 2', '2'], ['photos', '3'], ['rnd', '4']];
 
 const Thumbnails = ({ gallery, galleryMedium, galleryLarge, galleryName }) => {
   const { galleryModal, setGalleryModal } = React.useContext(GalleryModalContext);
@@ -68,6 +68,8 @@ const Thumbnails = ({ gallery, galleryMedium, galleryLarge, galleryName }) => {
 const ImgGallery = ({ galleryIndex }) => {
   if (galleryIndex === '3')
     galleryIndex = 'photo';
+  else if (galleryIndex === '4')
+    galleryIndex = 'rnd'
   else
     galleryIndex = 'pt' + (parseInt(galleryIndex) + 1).toString();
 
@@ -84,17 +86,22 @@ const ImgGallery = ({ galleryIndex }) => {
   // TODO: implement loading of different sizes of pics depending on screen res
   return (
     <div>
-		{ galleryModal.show ? <GalleryModal /> :
-      <div className="gallery">
-        <div className="gallery--row">
-          <Thumbnails galleryName={ galleryIndex } gallery={ galleryWork } galleryMedium={ galleryWorkMedium } galleryLarge={ galleryWorkLarge } id="" />
-					<p className="gallery-txt">{ txt }</p>
-					{ galleryIndex !== 'pt1' ? null : <Thumbnails gallery={ galleryProcess } galleryName="pt1Process" galleryMedium={ galleryProcessMedium } galleryLarge={ galleryProcessLarge } /> }
+    { galleryModal.show ? <GalleryModal /> :
+    <div>
+        <div class="top-decoration" />
+        <div className="gallery">
+          <div className="gallery--row">
+            <Thumbnails galleryName={ galleryIndex } gallery={ galleryWork } galleryMedium={ galleryWorkMedium } galleryLarge={ galleryWorkLarge } id="" />
+            <p className="gallery-txt">{ txt }</p>
+            { galleryIndex !== 'pt1' ? null : <Thumbnails gallery={ galleryProcessMedium } galleryName="pt1Process" galleryMedium={ galleryProcessMedium } galleryLarge={ galleryProcessLarge } /> }
+          </div>
         </div>
       </div> }
     </div>
   );
 };
+
+const Rnd = () => <div className="rnd">{ rnd }</div>;
 
 const Img = (props) => {
 	const [galleryModal, setGalleryModal] = useState({ gallery: '', show: false, imgIndex: 0 });
@@ -119,9 +126,13 @@ const Img = (props) => {
         </ul>
       </nav>
       <div className="content">
-        <GalleryModalContext.Provider value={contextValue}>
-          <ImgGallery galleryIndex={galleryIndex} />
-        </GalleryModalContext.Provider>
+        {
+          galleryIndex !== '4' ? 
+            <GalleryModalContext.Provider value={contextValue}>
+              <ImgGallery galleryIndex={galleryIndex} />
+            </GalleryModalContext.Provider>
+            : <Rnd />
+          }
       </div>
     </div>
   );

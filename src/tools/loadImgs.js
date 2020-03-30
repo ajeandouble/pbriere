@@ -2,6 +2,7 @@ import React from 'react';
 import data from '../settings.json'
 
 const bjr = <img src={process.env.PUBLIC_URL + '/img/bjr.gif'} />;
+const rnd = <img src={process.env.PUBLIC_URL + '/img/rnd.gif'} />;
 const imgData = data['pages_data']['img'];  
 
 for (let p in imgData) {
@@ -18,4 +19,4 @@ for (let p in imgData) {
   }
 }
 
-export { imgData, bjr }
+export { imgData, bjr, rnd }

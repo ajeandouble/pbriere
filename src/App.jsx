@@ -8,6 +8,7 @@ import {
 import './App.css';
 import Bjr from './components/Bjr'
 import Img from './components/Img'
+import Vids from './components/Vids'
 import Info from './components/Info'
 
 const mainLinks = [['img/', '/img/0'], ['vids/', '/vids'], ['snd/', '/snd'], ['url+', '/url'], ['info', '/info']];
@@ -27,8 +28,11 @@ function App() {
         <Links />
         <Switch>
           <Route exact path="/" component={Bjr} />
-          <Route path="/info"><Info /></Route>
           <Route path="/img/:id" render={(props) => <Img {...props} isAuthed={true} />} />
+          <Route path="/info"><Info /></Route>
+          <Route path="/vids"><Vids /></Route>
+          <Route path='/snd' component={ () => { window.location.href = 'https://soundcloud.com/prothese'; return null; } }/>
+          <Route path='/url' component={ () => { window.location.href = 'https://aiglemangeurdesinges.tumblr.com/'; return null; } }/>
         </Switch>
       </div>
     </Router>
