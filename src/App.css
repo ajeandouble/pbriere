@@ -74,7 +74,7 @@ nav li {
 	color: tomato;
 }
 
-.links--img, .links--random {
+.links--img, .links--random, .links--url {
 	z-index: -1;
 	animation: 0.15s ease-out links--dropdown;
 }
@@ -86,7 +86,7 @@ nav li {
 @keyframes links--dropdown {
 	0% {
 		opacity: 0%;
-	  	transform: translateY(-100%);
+	  	transform: translateY(-1rem);
 	}
 	100% {
 		transform: translateY(0);
@@ -135,19 +135,23 @@ a {
 /* Bjr */
 
 .bjr {
-	position: fixed;
+	position: relative;
 	left: 0;
 	top: 0;
-	padding: 4.5rem 0 0 1.5rem;
+	padding: 0 0 0 1.5rem;
 	min-width: 100%;
 	min-height: 100%;
-	z-index: -1;
 }
 
 .bjr img {
 	max-width: 100%;
 }
 
+@media screen and (max-width: 640px) {
+	.bjr {
+		padding: 0;
+	}
+}
 /* Img Galery */
 
 .gallery {

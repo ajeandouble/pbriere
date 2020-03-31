@@ -11,21 +11,36 @@ import Img from './components/Img'
 import Vids from './components/Vids'
 import Info from './components/Info'
 
-const mainLinks = [['img/', '#'], ['vids/', '/vids'], ['snd/', '/snd'], ['url+', '/url'], ['info/', '/info']];
-const imgLinks = [['papier thermique #0/', '0'], ['pa. th. 1/', '1'], ['pa. th. 2/', '2'], ['random/', '#']];
-const randomLinks = [['photos/', '3'], ['crbn', '4']];
+const mainLinks = [['img/', '#'], ['vids/', '/vids'], ['snd/', '/snd'], ['url+', '#'], ['info/', '/info']];
+const imgLinks = [['papier thermique #0/', '/img/0'], ['pa. th. 1/', '/img/1'], ['pa. th. 2/', '/img/2'], ['random/', '#']];
+const randomLinks = [['photos/', '/img/3'], ['crbn', '/img/4']];
+const urlLinks = [['tumblr/', 'https://aiglemangeurdesinges.tumblr.com/'], ['tumblr2/', 'https://friction-images.tumblr.com/'], ['flickr/', 'https://www.flickr.com/photos/tofusoyo/'], ['ig/', 'https://www.instagram.com/hermetikon/'], ['ig2/', 'https://www.instagram.com/visual_predation/']];
 
 const Links = () => {
-  const [activeLinks, setActiveLinks] = useState({ img: false, random: false });
+  const [activeLinks, setActiveLinks] = useState({ img: false, random: false, url: false });
+
+  const handleClick = (element) => {
+    element[0] === 'img/' ?
+    setActiveLinks({ ...activeLinks, img: !activeLinks.img,  random: false, url: false })
+    : setActiveLinks({ ...activeLinks, img: false, random: false })
+    element[0] === 'random/' ?
+      setActiveLinks({ ...activeLinks, random: !activeLinks.random })
+    : void(0);    element[0] === 'random/' ?
+      setActiveLinks({ ...activeLinks, random: !activeLinks.random })
+    : void(0);
+    element[0] === 'url+' ?
+    setActiveLinks({ ...activeLinks, img: false, random: false, url: !activeLinks.url })
+  : void(0);
+    // url+
+  }
+
   return (
     <div className="links">
       <nav className="header">
         <ul className="links--main" >
           { mainLinks.map((element) => <li className="links--main--li" key={ element[0] }>
             <Link to={ element[1] }
-              onClick={() => element[0] === 'img/' ?
-                setActiveLinks({ ...activeLinks, img: !activeLinks.img,  random: false })
-              : setActiveLinks({ ...activeLinks, img: false, random: false }) }>
+              onClick={ () => handleClick(element) }c>
                 { element[0] }</Link></li>) }
         </ul>
       </nav>
@@ -34,9 +49,8 @@ const Links = () => {
           <ul className="links--img">
             <span className="links--img--padding" style={{ visibility: 'hidden' }}>{ window.innerWidth < 640 ? "t" : null }</span>
             { imgLinks.map((element) => <li className="links--img--li" key={element[1]}>
-              <Link to={ `/img/${ element[1] }` }
-                onClick={() => element[0] === 'random/' ?
-                  setActiveLinks({ ...activeLinks, random: !activeLinks.random }) : null }>
+              <Link to={ `${ element[1] }` }
+                onClick={ () => handleClick(element) } >
                   { element[0] }</Link></li>) }
           </ul>
         </nav>
@@ -46,7 +60,16 @@ const Links = () => {
           <ul className="links--random">
             <span className="links--random--padding" style={{ visibility: 'hidden' }}>{ window.innerWidth < 640 ? "PaddingPadd" : "PaddingPaddingPaddingPaddingPaddingPaddingP" }</span>
             {/* padding */}
-            {randomLinks.map((element) => <li className="links--img--li" key={element[1]}><Link to={`/img/${element[1]}`}>{element[0]}</Link></li>)}
+            {randomLinks.map((element) => <li className="links--img--li" key={element[1]}><Link to={`${element[1]}`}>{element[0]}</Link></li>)}
+          </ul>
+        </nav>
+        : false }
+        { activeLinks.url ?
+        <nav className="header">
+          <ul className="links--url">
+            {/* padding */}
+            {urlLinks.map((element, i) =>  <div><span className="links--url--padding" style={{ visibility: 'hidden' }}>{ window.innerWidth < 640 ? "PaddingPaddingPaddi" : "PaddingPaddingPaddingPaddingPaddingPadd" }</span>
+<li className="links--img--li" key={element[1]}><Link to={`/url/${i}`}>{element[0]}</Link><br /></li></div>)}
           </ul>
         </nav>
         : false }
@@ -67,11 +90,13 @@ function App() {
       <div className="App">
         <Links />
         <Switch>
+          {/* _TODO_ add Bjr component */}
+          <Route exact path="/" component={Bjr} />
           <Route path="/img/:id" render={(props) => <Img {...props} isAuthed={true} />} />
           <Route path="/info"><Info /></Route>
           <Route path="/vids"><Vids /></Route>
           <Route path='/snd' component={ () => { window.location.href = 'https://soundcloud.com/prothese'; return null; } }/>
-          <Route path='/url' component={ () => { window.location.href = 'https://aiglemangeurdesinges.tumblr.com/'; return null; } }/>
+  {urlLinks.map((url, i) => <Route path={`/url/${i}`}  component={ () => { window.location.href = urlLinks[i][1]; return null; } } />) }
         </Switch>
       </div>
     </Router>
