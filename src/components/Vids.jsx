@@ -19,7 +19,7 @@ const Vids = () => {
                 */
                 vidsData['url'].map((url, i) =>
                     <div>
-                        <h5 style={{ backgroundColor: colors[i % colors.length] }} cassName="vids-title"><b>{ url[0] }</b></h5>
+                        <h5 style={{ backgroundColor: colors[i % colors.length], color: "white" }} cassName="vids-title"><b>{ url[0] }</b></h5>
                         <div className={ !(i % 2) ? "vids--thumbails__left" : "vids--thumbmails__right" }>
                             <div className="embed-container">
                                 <iframe
