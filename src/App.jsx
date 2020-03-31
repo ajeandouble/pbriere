@@ -86,7 +86,7 @@ function App() {
       imgLinks[3][0] = 'random/';
     }
   });
-  
+
   return (
     <Router>
       <div className="App">
