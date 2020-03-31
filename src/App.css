@@ -52,7 +52,7 @@ nav li {
 	margin-left: 1.5rem;
 }
 
-@media only screen and (max-width: 370px) {
+@media only screen and (max-width: 999px) {
 	nav li {
 		margin-left: 1rem;
 	}

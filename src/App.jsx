@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -77,14 +77,16 @@ const Links = () => {
   );
 }
 
-if (window.innerWidth < 640) {
-  imgLinks[0][0] = '#0';
-  imgLinks[1][0] = '#1';
-  imgLinks[2][0] = '#2';
-  imgLinks[3][0] = 'random/';
-}
-
 function App() {
+  useEffect(() => {
+    if (window.innerWidth < 640) {
+      imgLinks[0][0] = '#0';
+      imgLinks[1][0] = '#1';
+      imgLinks[2][0] = '#2';
+      imgLinks[3][0] = 'random/';
+    }
+  });
+  
   return (
     <Router>
       <div className="App">
