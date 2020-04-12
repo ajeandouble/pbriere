@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { GalleryModal, GalleryModalContext } from './GalleryModal';
 import { imgData, rnd } from '../tools/loadImgs';
 import parseHtml from 'html-react-parser';
@@ -30,6 +29,8 @@ const Thumbnails = ({ gallery, galleryMedium, galleryLarge, galleryName }) => {
       break;
     case 'photo':
       rowLength = 15;
+      break;
+    default:
       break;
   }
 
@@ -75,10 +76,9 @@ const ImgGallery = ({ galleryIndex }) => {
   console.log(galleryWork);
   const galleryWorkMedium = imgData[galleryIndex]['gallery']['Work']['Medium'];
   const galleryWorkLarge = imgData[galleryIndex]['gallery']['Work']['Large'];
-  const galleryProcess = galleryIndex === 'pt1' ? imgData['pt1']['gallery']['Process']['Thumb'] : null;
   const galleryProcessMedium = galleryIndex === 'pt1' ? imgData['pt1']['gallery']['Process']['Medium'] : null;
   const galleryProcessLarge = galleryIndex === 'pt1' ? imgData['pt1']['gallery']['Process']['Large'] : null;
-  const { galleryModal, setGalleryModal } = React.useContext(GalleryModalContext);
+  const { galleryModal } = React.useContext(GalleryModalContext);
   const txt = parseHtml(imgData[galleryIndex]['txt']);
 
   // TODO: implement loading of different sizes of pics depending on screen res

@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from 'react'
+import React, { createContext, useEffect } from 'react'
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
 const GalleryModalContext = createContext({ galleryModal: { show: false, galleryMedium: '', gallery: '', imgIndex: 0 }, setGalleryModal: () => {}});
@@ -9,14 +9,16 @@ const GalleryModal = (galleryIndex) => {
 	const handleKey = ({ key }) => {
 			switch (key) {
 					case 'Escape':
-							setGalleryModal({ ...galleryModal, show: false });
-							break;
+						setGalleryModal({ ...galleryModal, show: false });
+						break;
 					case 'ArrowLeft':
-							setGalleryModal({ ...galleryModal, imgIndex: galleryModal.imgIndex - 1 });
-							break;
+						setGalleryModal({ ...galleryModal, imgIndex: galleryModal.imgIndex - 1 });
+						break;
 					case 'ArrowRight':
-							setGalleryModal({ ...galleryModal, imgIndex: galleryModal.imgIndex + 1 });
-							
+						setGalleryModal({ ...galleryModal, imgIndex: galleryModal.imgIndex + 1 });
+						break;
+					default:
+						break;
 			}
 			document.removeEventListener('keydown', handleKey);
 	};
@@ -57,7 +59,7 @@ const GalleryModal = (galleryIndex) => {
 			}
 		}
 	};
-	const { galleryMedium, imgIndex } = galleryModal;
+	const { imgIndex } = galleryModal;
 	const gallery = window.innerWidth <= 1200 ? galleryModal.galleryMedium : galleryModal.gallery; 
 	if (window.innerWidth < 1200) {
 		console.group("medium images");

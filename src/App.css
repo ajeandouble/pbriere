@@ -326,46 +326,42 @@ a {
 
 /* Vids */
 
-.vids--thumbmails {
-	margin-top: 4vh;
-	padding-top: 0.25rem;
-	width: 98vw;
-	margin-left: 0.5vw;
-}
 
 .vids-title {
 	font-weight: 700;
 	padding-left: 5vw;
 }
 
-/*
-.vids--thumbails__left {
-	float: left;
-	width: 50%;
-	margin: auto;
+.vimeo-modal--cross {
+	position: fixed;
+	z-index: 7000;
+	top: 2vh;
+	right: 2vw;	
+	font-size: 1.25rem;
+	font-weight: 400;
+	color: black;
+	text-shadow:
+	-1px -1px 0 white,
+	1px -1px 0 white,
+	-1px 1px 0 white,
+	1px 1px 0 white;
 }
 
-.vids--thumbails__left iframe, .vids--thumbmails__right iframe {
-}
-
-.vids--thumbmails__right {
-	float: right;
-	width: 50%;
-	margin: auto;
-}*/
 .embed-container {
-	position: relative;
-	padding-bottom: 60%;
+	position: fixed;
+	top: 0;
+	left: 0;
 	height: 0;
+	z-index: 60000;
+	height: 100%;
+	width: 100%;
 	overflow: hidden;
-	width: 98vw;
+	/* width: 98vw; */
 	background-color: black;
 	margin-bottom: 0.15rem;
   }
   
-  .embed-container iframe,
-  .embed-container object,
-  .embed-container embed {
+  .embed-container iframe {
 	position: absolute;
 	top: 0;
 	left: 0;

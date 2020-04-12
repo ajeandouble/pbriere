@@ -472,50 +472,26 @@
         },
         "vids": {
             "url": [
-                [
-                    "germinant (extrait)",
-                    "https://player.vimeo.com/video/46034267"
-                ],
-                [
-                    "parade/ sentinelle",
-                    "https://player.vimeo.com/video/33282130?title=0&byline=0&portrait=0"
-                ],
-                [
-                    "( fiction)_landscape monitoring a",
-                    "https://player.vimeo.com/video/30249726?title=0&byline=0&portrait=0&color=#030303"
-                ],
-                [
-                    "( fiction)_landscape monitoring b",
-                    "https://player.vimeo.com/video/44193106?title=0&byline=0&portrait=0&color=#030303amp"
-                ],
-                [
-                    "berges (séquence de la)",
-                    "https://player.vimeo.com/video/17398690?title=0&byline=0&portrait=0&loop=1&color=050505"
-                ],
-                [
-                    "rendlesham_1",
-                    "https://player.vimeo.com/video/31812216?title=0&byline=0&portrait=0&loop=1&color=050505"
-                ],
-                [
-                    "rendlesham_2",
-                    "https://player.vimeo.com/video/32708110?title=0&byline=0&portrait=0&loop=1&color=050505"
-                ],
-                [
-                    "1",
-                    "https://player.vimeo.com/video/18974258?title=0&byline=0&portrait=0&loop=1&color=050505"
-                ],
-                [
-                    "2",
-                    "https://player.vimeo.com/video/32454704?title=0&byline=0&portrait=0&color=050505&loop=1"
-                ],
-                [
-                    "3",
-                    "https://player.vimeo.com/video/32705977?title=0&byline=0&portrait=0&color=151617&loop=1"
-                ],
-                [
-                    "4",
-                    "https://player.vimeo.com/video/33465898?title=0&byline=0&portrait=0&color=080a0a&loop=1&autoplay=1"
-                ]
+                {
+                    "title": "germinant (extrait)",
+                    "url": "https://player.vimeo.com/video/46034267",
+                    "id" : "46034267"
+                },
+                {
+                    "title": "parade/ sentinelle",
+                    "url": "https://player.vimeo.com/video/33282130",
+                    "id": "33282130"
+                },
+                {
+                    "title": "parade/ sentinelle",
+                    "url": "https://player.vimeo.com/video/33282130",
+                    "id": "33282130"
+                },
+                {
+                    "title": "parade/ sentinelle",
+                    "url": "https://player.vimeo.com/video/33282130",
+                    "id": "33282130"
+                }   
             ]
             }
         }
