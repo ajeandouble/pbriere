@@ -2,10 +2,6 @@
 	box-sizing: border-box;
 }
 
-body {
-	
-}
-
 html {
 	font-family: 'Lato', sans-serif;
 	font-size: 20px;
@@ -42,10 +38,6 @@ h6 {
 	padding-top: 0.15rem;
 }
 
-.content {
-	
-}
-
 nav li {
 	display: inline;
 	margin-left: 1.5rem;
@@ -72,7 +64,9 @@ nav li {
 	color: tomato;
 }
 
-.links--random 
+.links--vids:hover{
+	color: tomato;
+}
 
 .links--img, .links--random, .links--url, .links--papier {
 	z-index: -1;
@@ -329,7 +323,7 @@ a {
 
 .vids-title {
 	font-weight: 700;
-	padding-left: 5vw;
+	padding-left: 1.5rem;
 }
 
 .vimeo-modal--cross {
@@ -345,6 +339,10 @@ a {
 	1px -1px 0 white,
 	-1px 1px 0 white,
 	1px 1px 0 white;
+}
+
+.vimeo-modal--cross:hover{
+	cursor: pointer;
 }
 
 .embed-container {

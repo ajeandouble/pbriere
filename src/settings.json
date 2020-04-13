@@ -286,7 +286,7 @@
                         ]
                     }
                 },
-                "txt": "<span><h5><b style=\"background-color: tomato\">empreintes composites</b></h5><br /><h5><b>caisson lumineux</b></h5></span>"
+                "txt": "<span><h5><b>empreintes composites</b></h5><br /><h5><b>caisson lumineux</b></h5></span>"
             },
             "photo": {
                 "gallery": {
@@ -464,7 +464,7 @@
                         ]
                     }
                 },
-                "txt": "<span><h5 style=\"background-color: lightblue;\">débris, paysages et animaux</h5><br />(fin de cycle, seuils, sous-titres)¹</span>"
+                "txt": "<span><h5>débris, paysages et animaux</h5><br />(fin de cycle, seuils, sous-titres)¹</span>"
             }
         },
         "info": {
@@ -483,15 +483,20 @@
                     "id": "33282130"
                 },
                 {
-                    "title": "parade/ sentinelle",
-                    "url": "https://player.vimeo.com/video/33282130",
-                    "id": "33282130"
+                    "title": "( fiction)_landscape monitoring a",
+                    "url": "http://player.vimeo.com/video/30249726",
+                    "id": "30249726"
                 },
                 {
-                    "title": "parade/ sentinelle",
-                    "url": "https://player.vimeo.com/video/33282130",
-                    "id": "33282130"
-                }   
+                    "title": "( fiction)_landscape monitoring b",
+                    "url": "http://player.vimeo.com/video/44193106",
+                    "id": "44193106"
+                },
+                {
+                    "title": "berge (séquence de la)",
+                    "url": "http://player.vimeo.com/video/17398690",
+                    "id": "17398690"
+                }
             ]
             }
         }

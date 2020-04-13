@@ -48,8 +48,8 @@ const Vids = () => {
             {
                 vidsData['url'].map((el, i) =>
                     <div>
-                        <h5 style={{ backgroundColor: colors[i % colors.length], color: "white" }} className="vids-title"
-                            onClick={() => setFullscreen(i)}>{el['title']}
+                        <h5 style={{ marginTop: "1.6rem"}} className="vids-title"
+                            onClick={() => setFullscreen(i)}><a className="links--vids" href="#">{el['title']}</a>
                         </h5>
                         <div className="embed-container"
                             style={{display: fullscreen === i ? "block" : "none"}}>
