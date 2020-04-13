@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { GalleryModal, GalleryModalContext } from './GalleryModal';
 import { imgData, rnd } from '../tools/loadImgs';
 import parseHtml from 'html-react-parser';
+import Chance from 'chance';
 
 const TwoDimensional = (arr, size) => {
   const res = [];
@@ -11,6 +12,9 @@ const TwoDimensional = (arr, size) => {
   return res;
 };
 
+console.log('IMG')
+
+const randomN = Math.floor(Math.random() * 100);
 const Thumbnails = ({ gallery, galleryMedium, galleryLarge, galleryName }) => {
   const { galleryModal, setGalleryModal } = React.useContext(GalleryModalContext);
 
@@ -72,16 +76,29 @@ const ImgGallery = ({ galleryIndex }) => {
   else
     galleryIndex = 'pt' + (parseInt(galleryIndex) + 1).toString();
 
-  const galleryWork = imgData[galleryIndex]['gallery']['Work']['Thumb'];
-  console.log(galleryWork);
-  const galleryWorkMedium = imgData[galleryIndex]['gallery']['Work']['Medium'];
-  const galleryWorkLarge = imgData[galleryIndex]['gallery']['Work']['Large'];
+  let galleryWork = imgData[galleryIndex]['gallery']['Work']['Thumb'];
+  let galleryWorkMedium = imgData[galleryIndex]['gallery']['Work']['Medium'];
+  let galleryWorkLarge = imgData[galleryIndex]['gallery']['Work']['Large'];
+  if (galleryIndex === 'photo') {
+    console.log(randomN)
+
+    let chance = new Chance(randomN);
+    galleryWork = chance.shuffle(galleryWork);
+    console.log(galleryWork);
+
+    chance = new Chance(randomN);
+    galleryWorkMedium = chance.shuffle(galleryWorkMedium);
+    console.log(galleryWorkMedium);
+
+    chance = new Chance(randomN);
+    galleryWorkLarge = chance.shuffle(galleryWorkLarge);
+    console.log(galleryWorkLarge);
+  }
   const galleryProcessMedium = galleryIndex === 'pt1' ? imgData['pt1']['gallery']['Process']['Medium'] : null;
   const galleryProcessLarge = galleryIndex === 'pt1' ? imgData['pt1']['gallery']['Process']['Large'] : null;
   const { galleryModal } = React.useContext(GalleryModalContext);
   const txt = parseHtml(imgData[galleryIndex]['txt']);
-
-  // TODO: implement loading of different sizes of pics depending on screen res
+  console.log('test')
   return (
     <div>
     { galleryModal.show ? <GalleryModal /> :
