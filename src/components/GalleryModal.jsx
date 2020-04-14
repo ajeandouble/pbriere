@@ -73,7 +73,7 @@ const GalleryModal = (galleryIndex) => {
 	console.log(imgIndex);
 	console.log(gallery);
   return (
-    <div>
+    <div ref={ref} id="container--img-nodal">
 			<div className="img-modal__left">
 				<div className="img-modal--left-arrow" onClick={(e) => handleClick(e, 'left')}>{'↽'}</div>
 			</div>
@@ -81,7 +81,7 @@ const GalleryModal = (galleryIndex) => {
 					<div className="img-modal--right-arrow" onClick={(e) => handleClick(e, 'right')}>{'⇁'}</div>
 			</div>
 			<div className="img-modal--cross" onClick={(e) => setGalleryModal({ ...galleryModal, show: false })}>{'X'}</div>
-			<div ref={ref} id="img-modal" style={{backgroudColor: "red"}}>
+			<div id="img-modal" style={{backgroudColor: "red"}}>
 				<TransformWrapper
 					scale={1}
 					doubleClick={{ disabled: false, mode: "reset" }}
