@@ -5,6 +5,7 @@ const GalleryModalContext = createContext({ galleryModal: { show: false, gallery
 
 const GalleryModal = (galleryIndex) => {
 	const { galleryModal, setGalleryModal } = React.useContext(GalleryModalContext);
+	const ref = React.createRef();
 
 	const handleKey = ({ key }) => {
 			switch (key) {
@@ -33,6 +34,9 @@ const GalleryModal = (galleryIndex) => {
 
 	useEffect(() => {
 		document.addEventListener('keydown', (e) => {console.log(e); handleKey(e)});
+		const modal = ref.current;
+		modal.requestFullscreen();
+
 		return function cleanup() {
 				document.removeEventListener('keydown', handleKey);
 			}
@@ -77,10 +81,10 @@ const GalleryModal = (galleryIndex) => {
 					<div className="img-modal--right-arrow" onClick={(e) => handleClick(e, 'right')}>{'⇁'}</div>
 			</div>
 			<div className="img-modal--cross" onClick={(e) => setGalleryModal({ ...galleryModal, show: false })}>{'X'}</div>
-			<div id="img-modal" style={{backgroudColor: "red"}}>
+			<div ref={ref} id="img-modal" style={{backgroudColor: "red"}}>
 				<TransformWrapper
 					scale={1}
-					doubleClick={{ disabled: true }}
+					doubleClick={{ disabled: false, mode: "reset" }}
 					positionX={0} 
 					positionY={0}
 					onPanningStart={(e) => {
