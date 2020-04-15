@@ -48,10 +48,8 @@ const Links = () => {
         <ul className="links--main" >
           { mainLinks.map((element) => <li className="links--main--li" key={ element[0] }>
             <NavLink to={ element[1] }
-              onClick={ () => handleClick(element) }
-              style={{ borderBottom: element[0] === activeLinks.link ? '1px solid grey' : '' }}
-              >
-                { element[0] }{ activeLinks.link }</NavLink></li>) }
+              onClick={ () => handleClick(element) }>
+                { element[0] }</NavLink></li>) }
         </ul>
       </nav>
       { activeLinks.img ?
@@ -60,8 +58,7 @@ const Links = () => {
             <span className="links--img--padding" style={{ visibility: 'hidden' }}>{ window.innerWidth < 640 ? "t" : null }</span>
             { imgLinks.map((element) => <li className="links--img--li" key={element[1]}>
               <NavLink to={ `${ element[1] }` }
-                onClick={ () => handleClick(element) } 
-                style={{ borderBottom: element[0] === activeLinks.link ? '1px solid grey' : '' }}>
+                onClick={ () => handleClick(element) }>
                   { element[0] }</NavLink></li>) }
           </ul>
         </nav>
@@ -71,8 +68,7 @@ const Links = () => {
           <ul className="links--random">
             <span className="links--random--padding" style={{ visibility: 'hidden', marginLeft: "0.30rem" }}>{ window.innerWidth < 640 ? "PaddingPaddingPad" : "PaddingPaddingPad" }</span>
             {/* padding */}
-            {randomLinks.map((element) => <li className="links--img--li" key={element[1]}><NavLink to={`${element[1]}`} 
-              style={{ borderBottom: element[0] === activeLinks.link ? '1px solid grey' : '' }}>{element[0]}</NavLink></li>)}
+            {randomLinks.map((element) => <li className="links--img--li" key={element[1]}><NavLink to={`${element[1]}`}>{element[0]}</NavLink></li>)}
           </ul>
         </nav>
         : false }
@@ -81,8 +77,7 @@ const Links = () => {
           <ul className="links--papier">
             <span className="links--random--padding" style={{ visibility: 'hidden' }}>{ window.innerWidth < 640 ? "P" : "" }</span>
             {/* padding */}
-            {papierLinks.map((element) => <li className="links--img--li" key={element[1]}><NavLink to={`${element[1]}`} 
-              style={{ borderBottom: element[0] === activeLinks.link ? '1px solid grey' : '' }}>{element[0]}</NavLink></li>)}
+            {papierLinks.map((element) => <li className="links--img--li" key={element[1]}><NavLink to={`${element[1]}`}>{element[0]}</NavLink></li>)}
           </ul>
         </nav>
         : false }
@@ -91,8 +86,7 @@ const Links = () => {
           <ul className="links--url">
             {/* padding */}
             {urlLinks.map((element, i) =>  <div><span className="links--url--padding" style={{ visibility: 'hidden' }}>{ window.innerWidth < 640 ? "PaddingPaddin" : "PaddingPaddingPaddingPaddin" }</span>
-            <li className="links--img--li" key={element[1]}><NavLink to={`/url/${i}`} target="_blank" 
-              style={{ borderBottom: element[0] === activeLinks.link ? '1px solid grey' : '' }}>{element[0]}</NavLink><br /></li></div>)}
+            <li className="links--img--li" key={element[1]}><NavLink to={`/url/${i}`} target="_blank">{element[0]}</NavLink><br /></li></div>)}
           </ul>
         </nav>
         : false }
